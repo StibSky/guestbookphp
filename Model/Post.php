@@ -47,18 +47,7 @@ class Post
         return $this->title;
     }
 
-    /**
-     * @return mixed
-     */
-    public function getDate()
-    {
-        if (!isset($this->date)) {
-            $this->date = "";
-        } else {
-            $this->date;
-        }
-        return $this->date;
-    }
+
 
     /**
      * @return string

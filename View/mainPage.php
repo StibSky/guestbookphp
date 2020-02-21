@@ -16,10 +16,6 @@
         <input id="title" name="title">
     </section>
     <section>
-        <label for="date">Write date here</label>
-        <input id="date" name="date">
-    </section>
-    <section>
         <label for="name">Write name here</label>
         <input id="name" name="name">
     </section>
@@ -30,5 +26,15 @@
     <input type="submit" name="submitButton">
 </form>
 
+<section>
+    <?php foreach (array_reverse($jsonArray) as $arrayItem) : ?>
+        <p>name of poster:  <?php echo $arrayItem['name']; ?></p>
+        <p>title: <?php echo $arrayItem['title']; ?></p>
+        <p>date of post: <?php echo $arrayItem['date']; ?></p>
+        <p>message left: <?php echo $arrayItem['message']; ?></p>
+    <br>
+    <br>
+    <?php endforeach ?>
+</section>
 </body>
 </html>

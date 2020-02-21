@@ -8,9 +8,9 @@ class Guestbook
         return $this->bigArray;
     }
 
-    public function pushtoBigArray($whatToPush)
+    public function pushtoBigArray($data)
     {
-        array_push($this->bigArray, $whatToPush);
+        array_push($this->bigArray, $data);
     }
 
 }
