@@ -13,15 +13,15 @@
     <h3>share something nice</h3>
     <section>
         <label for="title">Write title here</label>
-        <input id="title" name="title">
+        <input id="title" name="title" required>
     </section>
     <section>
         <label for="name">Write name here</label>
-        <input id="name" name="name">
+        <input id="name" name="name" required>
     </section>
     <section>
         <label for="guestText">Write text here</label>
-        <textarea id="guestText" name="guestText" rows="4" cols="50"></textarea>
+        <textarea id="guestText" name="guestText" rows="4" cols="50" required></textarea>
     </section>
     <input type="submit" name="submitButton">
 </form>
