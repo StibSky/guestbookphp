@@ -13,4 +13,16 @@ class Guestbook
         array_push($this->bigArray, $data);
     }
 
+    public function encodeArray($bigarray) {
+        return json_encode($bigarray, JSON_PRETTY_PRINT);
+
+
+    }
+
+    public function putContents($filename,$encodedarray) {
+        file_put_contents($filename, $encodedarray);
+    }
+
+
+
 }

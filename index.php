@@ -8,3 +8,4 @@ require 'Controller/MainController.php';
 
 $controller = new MainController();
 $controller->render();
+

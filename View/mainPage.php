@@ -26,15 +26,17 @@
     <input type="submit" name="submitButton">
 </form>
 
-<section>
-    <?php foreach (array_reverse($jsonArray) as $arrayItem) : ?>
-        <p>name of poster:  <?php echo $arrayItem['name']; ?></p>
-        <p>title: <?php echo $arrayItem['title']; ?></p>
-        <p>date of post: <?php echo $arrayItem['date']; ?></p>
-        <p>message left: <?php echo $arrayItem['message']; ?></p>
+
+<?php foreach (array_reverse($jsonArray) as $arrayItem) : ?>
+    <section style="border: solid black">
+        <p><strong>name of poster:</strong> <?php echo $arrayItem['name']; ?></p>
+        <p><strong>title: </strong> <?php echo $arrayItem['title']; ?></p>
+        <p><strong>date of post:</strong> <?php echo $arrayItem['date']; ?></p>
+        <p><strong>message left:</strong> <?php echo $arrayItem['message']; ?></p>
+    </section>
     <br>
     <br>
-    <?php endforeach ?>
-</section>
+<?php endforeach ?>
+
 </body>
 </html>

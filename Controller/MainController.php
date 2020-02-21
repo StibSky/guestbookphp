@@ -9,24 +9,23 @@ require 'Model/Guestbook.php';
 require 'Model/Post.php';
 
 session_start();
-
 class MainController
 {
 
     public function render()
     {
         if (!isset($_POST['title'])) {
-            $_POST['title'] = "FIRST";
+            $_POST['title'] = "";
         }
 
         if (!isset($_POST['date'])) {
-            $_POST['date'] = date("Y/m/d h:i:sa");
+            $_POST['date'] = "";
         }
         if (!isset($_POST['name'])) {
-            $_POST['name'] = "Coder";
+            $_POST['name'] = "";
         }
         if (!isset($_POST['guestText'])) {
-            $_POST['guestText'] = "this is the standard message";
+            $_POST['guestText'] = "";
         }
         $guestBookEntry = new Post($_POST['title'], $_POST['date'], $_POST['name'], $_POST['guestText']);
 
@@ -45,15 +44,18 @@ class MainController
             $guestbook = $_SESSION['guestbook'];
         }
 
-        $guestbook->pushtoBigArray($entryarray);
+        if ($_POST['name'] != "") {
+            $guestbook->pushtoBigArray($entryarray);
+        }
         $bigarray = $guestbook->getAllPosts();
-        $encodedArray = json_encode($bigarray, JSON_PRETTY_PRINT);
-        file_put_contents($file, $encodedArray);
+        $encodedArray = $guestbook->encodeArray($bigarray);
+        $guestbook->putContents($file, $encodedArray);
         $jsonArray = $guestBookEntry->fetchPosts();
 
         while (count($jsonArray) > 20) {
             array_shift($jsonArray);
         }
+
         require 'View/mainPage.php';
     }
 }

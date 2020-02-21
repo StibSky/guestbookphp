@@ -16,12 +16,13 @@ class Post
      * @param $content
      * @param $authorName
      */
-    public function __construct(string $title, $date, string $authorName, string $content)
+    public function __construct(string $title, $date, string $authorName , string $content)
     {
-        $this->title = $title;
-        $this->date = $date;
-        $this->content = $content;
-        $this->authorName = $authorName;
+
+        $this->title = htmlspecialchars($title, ENT_QUOTES);
+        $this->date = htmlspecialchars($date, ENT_QUOTES);
+        $this->content = htmlspecialchars($content, ENT_QUOTES);
+        $this->authorName = htmlspecialchars($authorName, ENT_QUOTES);
     }
 
 
