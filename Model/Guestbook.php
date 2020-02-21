@@ -1,25 +1,16 @@
 <?php
-declare(strict_types = 1);
-
 class Guestbook
 {
-    private $writtenMessage;
+    private $bigArray = [];
 
-
-    /**
-     * @return string
-     */
-    public function getWrittenMessage($text): string
+    public function getAllPosts()
     {
-        if (!isset($text)) {
-            $this->writtenMessage = "";
-        } else {
-            $this->writtenMessage = (string)$text;
-        }
-        return $this->writtenMessage;
+        return $this->bigArray;
     }
 
-
-
+    public function pushtoBigArray($whatToPush)
+    {
+        array_push($this->bigArray, $whatToPush);
+    }
 
 }

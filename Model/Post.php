@@ -24,12 +24,15 @@ class Post
         $this->authorName = $authorName;
     }
 
+
+
     public function fetchPosts()
     {
         $this->jsonList = json_decode(file_get_contents('messages.json'), true);
 
         return$this->jsonList;
     }
+
 
     /**
      * @return string
